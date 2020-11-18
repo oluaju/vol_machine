@@ -21,9 +21,10 @@ We will use Timeseries models such RMA, ARIMA and GARCH Models which are known t
 and Deep Learning models such as RNN and CNN for multi-step forecasting and compare the results. 
 
 1. [Prepare the data for training and testing](#prepare-the-data-for-training-and-testing)
-2. [Build and train Timeseries Models](#build-and-train-custom-lstm-rnns)
-2. [Build and train custom LSTM RNNs](#build-and-train-custom-lstm-rnns)
-3. [Evaluate the performance of each model](#evaluate-the-performance-of-each-model)
+2. [Build and train Timeseries Models](#build-and-train-timeseries-model)
+3. [Build and train custom LSTM RNNs](#build-and-train-custom-lstm-rnns)
+4. [Build and train CNNs](#build-and-train-CNN-model)
+5. [Evaluate the performance of each model](#evaluate-the-performance-of-each-model)
 
 - - -
 
@@ -76,7 +77,7 @@ In ibmvix.ipynb Jupyter Notebook, We built custom LSTM RNN architectures for the
 3. predicting IV using Technical Indicators by feature engineering. 
 
 
-### Build and train CNN model
+### Build and train CNNs
 
 In cnn_options_vol_predict.ipynb Jupyter Notebook, We built CNN architectures for the following predictions
 1. predict next days movement using Open, high, low & close features and normalizing them by calculating the Z-Scores
@@ -91,7 +92,7 @@ training LSTM model.
 
 1. Can TS stat models predict Implied voltility acurately over long horizons?
 
-![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.png)
+![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.PNG)
 
 Observation: 
 from the above plotted results, TimeSeries Models do predict both direction and scale with reasonably high accuracy. 
@@ -99,7 +100,7 @@ When predicting long look ahead periods, TimeSeries models lose the ground on di
 
 2. Does recurrent neural network architecture significantly outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
 
-![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.png)
+![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.PNG)
 
 Observation: 
 from the above plotted results of Univariate forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy over 5 day horizon. 
@@ -107,12 +108,12 @@ from the above plotted results of Univariate forecasting, RNN Recurrent Neural N
 
 3. Do the cointegrated relationships significantly impact the multi-step forecast of the IVS? 
 
-![MV_LSTM_predictions.png](/resources/images/MV_LSTM_predictions.png)
+![MV_LSTM_predictions.png](/resources/images/MV_LSTM_predictions.PNG)
 
 Observation: 
 ** When predicting using multiple features, the results vary depending on the corelationship of the features.  The model was testing using Volume and Realized volatility. the results are not overwhelming but have prompted to use additional features that have high corelation co-efficients. 
 
-![FE_LSTM_predictions.png](/resources/images/FE_LSTM_predictions.png)
+![FE_LSTM_predictions.png](/resources/images/FE_LSTM_predictions.PNG)
 
 Observation: 
 ** When tried using technical indicators are additional features the results didnt improve much. 
@@ -120,7 +121,7 @@ Observation:
 ** probably features such as Option put and call price, Option volume etc., would help predict mmore accurately compared to the technical indicators which may not directly influence the Options Implied volatility. Also the Stock Sentiment score could be another important feature which could influence the prediction outcomes. 
 
 4. Can CNN model accurately predict the Implied ovalitility movement or direction ?
-![MV_CNN_5_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.png)
+![MV_CNN_5_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.PNG)
 
 Observation: 
 ** We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
