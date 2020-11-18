@@ -1,6 +1,6 @@
 # Options Implied Volatility Prediction
 
-![project2.png](/resources/Images/project2.png)
+![project2.png](/resources/images/project2.png)
 
 Performance of a financial asset is usually measured via its return. The dispersion in the returns, as well as their distribution of outcomes, is described by the asset’s volatility. Volatility is an essential component of financial derivatives and has been extensively researched in the areas of finance, risk management and policy making. In this case study, we focused on two measures of volatilities: 
 1. historical volatility (RV), which can be observed from the historical returns and realized at a certain point in time; 
@@ -63,9 +63,6 @@ MinMaxScalers to suppoort Vectors of more than 2 dimensions.
 
 In the Jupyter Notebook ibmvix_GARCH.ipynb, we built ARMA, ARIMA and GARCH models including Multivariate forecasting using VAR (Vector Auto Regression) 
 
-Using ACF and PACF we found the significant lags for the above mentioned models. 
-![Model Architecture](Resources/btc.png)
-
 * In one notebook, we fit the data using the FNG values. In the second notebook, only closing prices are used.
 * In order to compare the models, we will use the same parameters and training steps for each model. 
 
@@ -94,7 +91,7 @@ training LSTM model.
 
 1. Can TS stat models predict Implied voltility acurately over long horizons?
 
-![TS_Stat_model_predictions.png](/resourcesImages/TS_Stat_model_predictions.png)
+![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.png)
 
 Observation: 
 from the above plotted results, TimeSeries Models do predict both direction and scale with reasonably high accuracy. 
@@ -102,7 +99,7 @@ When predicting long look ahead periods, TimeSeries models lose the ground on di
 
 2. Does recurrent neural network architecture significantly outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
 
-![uV_LSTM_predictions.png](/resources/Images/uV_LSTM_predictions.png)
+![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.png)
 
 Observation: 
 from the above plotted results of Univariate forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy over 5 day horizon. 
@@ -110,12 +107,12 @@ from the above plotted results of Univariate forecasting, RNN Recurrent Neural N
 
 3. Do the cointegrated relationships significantly impact the multi-step forecast of the IVS? 
 
-![MV_LSTM_predictions.png](/resources/Images/MV_LSTM_predictions.png)
+![MV_LSTM_predictions.png](/resources/images/MV_LSTM_predictions.png)
 
 Observation: 
 ** When predicting using multiple features, the results vary depending on the corelationship of the features.  The model was testing using Volume and Realized volatility. the results are not overwhelming but have prompted to use additional features that have high corelation co-efficients. 
 
-![FE_LSTM_predictions.png](/resources/Images/FE_LSTM_predictions.png)
+![FE_LSTM_predictions.png](/resources/images/FE_LSTM_predictions.png)
 
 Observation: 
 ** When tried using technical indicators are additional features the results didnt improve much. 
@@ -123,7 +120,7 @@ Observation:
 ** probably features such as Option put and call price, Option volume etc., would help predict mmore accurately compared to the technical indicators which may not directly influence the Options Implied volatility. Also the Stock Sentiment score could be another important feature which could influence the prediction outcomes. 
 
 4. Can CNN model accurately predict the Implied ovalitility movement or direction ?
-![MV_CNN_5_Day_predictions.png](/resources/Images/MV_CNN_5_Day_predictions.png)
+![MV_CNN_5_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.png)
 
 Observation: 
 ** We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
