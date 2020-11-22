@@ -52,13 +52,13 @@ Data sourced from the publishers like ALPACA and Fred.Stlousfed is ready to be u
 
 2. Data pre-processing:
 
-1. Slice the data using the window of time function for the n day window.
-2. For Timeseries models we will use the Vix Dataset 
-3. For multivariate forecasting models We will use previous closing prices to caluculate the Realized Volatility to predict Implied Volatility.
-4. We will use  70% of the data for training and 30% of the data for testing in each model
-5. using MinMaxScaler we will scale X and y values for the model. for Multivariate & multi dimensional data set, we will create scaler matrix of 
+* Slice the data using the window of time function for the n day window.
+* For Timeseries models we will use the Vix Dataset 
+* For multivariate forecasting models We will use previous closing prices to caluculate the Realized Volatility to predict Implied Volatility.
+* We will use  70% of the data for training and 30% of the data for testing in each model
+* using MinMaxScaler we will scale X and y values for the model. for Multivariate & multi dimensional data set, we will create scaler matrix of 
 MinMaxScalers to suppoort Vectors of more than 2 dimensions. 
-6. In case of multistep forecasting, the dimensions of our samples will be more than 2 dimensions. in preparing hte LSTM models, the input shape has to be in the form of (n_samples, n_features and n_steps) which is a 3 dimensional vector. using Reshape method, x_train & x_test data sets are converted into the input shape for the LSTM models.
+* In case of multistep forecasting, the dimensions of our samples will be more than 2 dimensions. in preparing hte LSTM models, the input shape has to be in the form of (n_samples, n_features and n_steps) which is a 3 dimensional vector. using Reshape method, x_train & x_test data sets are converted into the input shape for the LSTM models.
 
 
 ### Build and train TimeSeries Models
@@ -96,14 +96,14 @@ training LSTM model.
 ![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.PNG)
 
 Observation: 
-from the above plotted results, TimeSeries Models do predict both direction and scale for short look ahead period (1 day) with reasonably high accuracy. When predicting multi-step forecast, TimeSeries models lose the ground on direction & scale. 
+*From the above plotted results, TimeSeries Models do predict both direction and scale for short look ahead period (1 day) with reasonably high accuracy. When predicting multi-step forecast, TimeSeries models lose the ground on direction & scale. 
 
 2. Does recurrent neural network architecture significantly outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
 
 ![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.PNG)
 
 Observation: 
-from the above plotted results of Univariate nth day forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy. in the above example, we predicted 5th day values using past 5 day window of data.
+* From the above plotted results of Univariate nth day forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy. in the above example, we predicted 5th day values using past 5 day window of data.
 
 
 3. Do the cointegrated relationships significantly impact the multi-step forecast of the IVS? 
@@ -111,20 +111,20 @@ from the above plotted results of Univariate nth day forecasting, RNN Recurrent 
 ![MV_LSTM_predictions.png](/resources/images/MV_LSTM_predictions.PNG)
 
 Observation: 
-** When predicting using multiple features, the results vary depending on the corelationship of the features.  The model was testing using Volume and Realized volatility. the results are not overwhelming but have prompted to use additional features that have high corelation co-efficients. 
+* When predicting using multiple features, the results vary depending on the corelationship of the features.  The model was testing using Volume and Realized volatility. the results are not overwhelming but have prompted to use additional features that have high corelation co-efficients. 
 
 ![FE_LSTM_predictions.png](/resources/images/FE_LSTM_predictions.PNG)
 
 Observation: 
-** When tried using technical indicators are additional features the results didnt improve much. 
+* When tried using technical indicators are additional features the results didnt improve much. 
 
-** probably features such as Option put and call price, Option volume etc., would help predict mmore accurately compared to the technical indicators which may not directly influence the Options Implied volatility. Also the Stock Sentiment score could be another important feature which could influence the prediction outcomes. 
+* probably features such as Option put and call price, Option volume etc., would help predict mmore accurately compared to the technical indicators which may not directly influence the Options Implied volatility. Also the Stock Sentiment score could be another important feature which could influence the prediction outcomes. 
 
 4. Can CNN model accurately predict the Implied ovalitility movement or direction ?
 ![MV_CNN_5_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.PNG)
 
 Observation: 
-** We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
+* We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
 
 4. What can be improved or could be done better?
 * Instead of using feature engineered data, we should get the features such as Options put and call prices, option volume etc., that are more tightly corelated to the Implied Volatility that could drive the accuracy of predictions. 
