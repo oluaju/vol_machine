@@ -10,7 +10,8 @@ The goal of this project is to answer three overarching questions:
 1. Do the corelationships significantly impact the multi-step forecast of the IVS? 
 2. Can TS Stat Models accurately predict multi-step forecast?
 3. Does recurrent neural network architecture outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
-4. Can the combination of RNNs with time series models drive better predictability
+4. Can the combination of RNN with CNN model drive better predictability
+5. What we could better or to improve the performance of the model
 
 In Summary, this project attempts to identify the best suited model and how hyperparameter tuning could play a role in predicting close to the realized Volatility n-days ahead.
 
@@ -95,15 +96,14 @@ training LSTM model.
 ![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.PNG)
 
 Observation: 
-from the above plotted results, TimeSeries Models do predict both direction and scale with reasonably high accuracy. 
-When predicting long look ahead periods, TimeSeries models lose the ground on direction & scale. 
+from the above plotted results, TimeSeries Models do predict both direction and scale for short look ahead period (1 day) with reasonably high accuracy. When predicting multi-step forecast, TimeSeries models lose the ground on direction & scale. 
 
 2. Does recurrent neural network architecture significantly outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
 
 ![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.PNG)
 
 Observation: 
-from the above plotted results of Univariate forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy over 5 day horizon. 
+from the above plotted results of Univariate nth day forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy. in the above example, we predicted 5th day values using past 5 day window of data.
 
 
 3. Do the cointegrated relationships significantly impact the multi-step forecast of the IVS? 
@@ -125,5 +125,10 @@ Observation:
 
 Observation: 
 ** We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
-** There was flaw in building the Dense layer of the CNN 5 day prediction model (will fix it and update results) hence the results were skewed in the plotted results above, but it is very much possible to predict 5 day movement with reasonably high accuracy.
+
+4. What can be improved or could be done better?
+* Instead of using feature engineered data, we should get the features such as Options put and call prices, option volume etc., that are more tightly corelated to the Implied Volatility that could drive the accuracy of predictions. 
+* also, predicting long horizons is not practical as it will be prone to errors due to the fact that there are many other parameters that will drive the volatility of options or stock prices which the model cannot predict. this project is a good example to demonstrate different model behaviours but the not necessarily to predict long horizons. 
+
+
 - - -
