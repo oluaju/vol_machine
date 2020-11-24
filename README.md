@@ -6,7 +6,7 @@ Performance of a financial asset is usually measured via its return. The dispers
 1. historical volatility (RV), which can be observed from the historical returns and realized at a certain point in time; 
 2. implied volatility (IV), which is not directly observable, but output from the Black Scholes Pricing model that outputs IV as a proxy for the derivatives price, or what the market is implying the volatility will be. 
 
-The goal of this project is to answer three overarching questions: 
+The goal of this project is to answer five overarching questions: 
 1. Do the corelationships significantly impact the multi-step forecast of the IVS? 
 2. Can TS Stat Models accurately predict multi-step forecast?
 3. Does recurrent neural network architecture outperform traditional time series models in a multi-step out-of-sample forecast of the IVS?
@@ -94,6 +94,7 @@ training LSTM model.
 1. Can TS stat models predict Implied voltility acurately over long horizons?
 
 ![TS_Stat_model_predictions.png](/resources/images/TS_Stat_model_predictions.PNG)
+![VAR_5days.PNG](/resources/images/VAR_5days.PNG)
 
 Observation: 
 *From the above plotted results, TimeSeries Models do predict both direction and scale for short look ahead period (1 day) with reasonably high accuracy. When predicting multi-step forecast, TimeSeries models lose the ground on direction & scale. 
@@ -103,7 +104,7 @@ Observation:
 ![uV_LSTM_predictions.png](/resources/images/uV_LSTM_predictions.PNG)
 
 Observation: 
-* From the above plotted results of Univariate nth day forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy. in the above example, we predicted 5th day values using past 5 day window of data.
+* From the above plotted results of Univariate nth day forecasting, RNN Recurrent Neural Network model predicts both direction and scale with reasonably high accuracy. in the above example, we predicted 5th day ahead using past 5 day window of data.
 
 
 3. Do the cointegrated relationships significantly impact the multi-step forecast of the IVS? 
@@ -121,7 +122,11 @@ Observation:
 * probably features such as Option put and call price, Option volume etc., would help predict mmore accurately compared to the technical indicators which may not directly influence the Options Implied volatility. Also the Stock Sentiment score could be another important feature which could influence the prediction outcomes. 
 
 4. Can CNN model accurately predict the Implied ovalitility movement or direction ?
-![MV_CNN_5_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.PNG)
+![MV_CNN_1_Day_predictions.png](/resources/images/MV_CNN_5_Day_predictions.PNG)
+
+* CNN MModel Architecture
+![cnn.png](/resources/images/cnn.png)
+
 
 Observation: 
 * We tried using CNN to predict next day's movement (up/down) with 98% accuracy. 
